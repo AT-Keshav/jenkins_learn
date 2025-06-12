@@ -36,6 +36,13 @@ pipeline {
       }
     }
 
+    stage('Check Docker Access') {
+        steps {
+            sh 'whoami'
+            sh 'docker ps'
+        }
+    }
+
     stage('Deploy') {
       steps {
         echo "Deploy step (e.g., Docker push or scp to server)"

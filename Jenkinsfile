@@ -39,7 +39,9 @@ pipeline {
     stage('Deploy') {
       steps {
         echo "Deploy step (e.g., Docker push or scp to server)"
-        // You can use ssh or docker to deploy to prod
+        sh 'docker build -t keshav525141/node-back-end:0.1.0 .'
+        sh 'docker push keshav525141/node-back-end:0.1.0'
+
       }
     }
   }

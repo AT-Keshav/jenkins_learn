@@ -44,13 +44,19 @@ pipeline {
     }
 
     stage('Deploy') {
-      steps {
-        echo "Deploy step (e.g., Docker push or scp to server)"
-        sh 'docker build -t keshav525141/node-back-end:0.1.0 .'
-        sh 'docker push keshav525141/node-back-end:0.1.0'
+  steps {
+    echo "Deploy step (e.g., Docker push or scp to server)"
+    sh 'docker build -t keshav525141/node-back-end:0.1.0 .'
 
-      }
+    withCredentials([usernamePassword(credentialsId: 'docker-hub-pat', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+      sh '''
+        echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+        docker push keshav525141/node-back-end:0.1.0
+      '''
     }
+  }
+}
+
   }
 
   post {

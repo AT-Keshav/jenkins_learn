@@ -6,7 +6,7 @@ pipeline {
   }
 
   tools {
-    nodejs "NodeJS" // match Node version installed in Jenkins
+    nodejs "Default" // match Node version installed in Jenkins
   }
 
   stages {

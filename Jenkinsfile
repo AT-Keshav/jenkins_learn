@@ -12,7 +12,7 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git credentialsId: 'github-pat', url: 'https://github.com/your-username/node-backend-app.git'
+        git credentialsId: 'github-pat', url: 'https://github.com/AT-Keshav/jenkins_learn.git'
       }
     }
 

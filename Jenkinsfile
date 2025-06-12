@@ -12,7 +12,8 @@ pipeline {
   stages {
     stage('Clone') {
       steps {
-        git credentialsId: 'github-pat', url: 'https://github.com/AT-Keshav/jenkins_learn.git'
+        git branch: 'main', url: 'https://github.com/AT-Keshav/jenkins_learn.git'
+        //git credentialsId: 'github-pat', url: 'https://github.com/AT-Keshav/jenkins_learn.git'
       }
     }
 
